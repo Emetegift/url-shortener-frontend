@@ -28,17 +28,9 @@ function Dashboard() {
         const user_links = response.data.user_links;
         setUserLinks(user_links);
         setUsers(users);
-        // ...
-
-        // Fetch data from another link within the same file
-        // return axios.get(`${BASE_URL}/all-link`, config);
+      
       })
-      // .then((response) => {
-      //   // Process the data from the other link
-      //   const otherData = response.data;
-      //   setDashboard(otherData);
-      // ...
-      // })
+     
       .catch((error) => console.error(error));
   }, []);
 

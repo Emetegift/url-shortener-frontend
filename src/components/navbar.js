@@ -7,7 +7,7 @@ const NavBar =()=>{
     return(
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/"><i><b>QuickLink!</b></i></Link>
+                <Link className="navbar-brand" to="/about"><i><b>QuickLink!</b></i></Link>
                  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -16,8 +16,16 @@ const NavBar =()=>{
                         <li className="nav-item">
                             <Link className="nav-link active" to="/">Home</Link>
                         </li>
+
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/platform">Features</Link>
+                            <Link className="nav-link active" to="/dashboard">Dashboard</Link>
+                        </li>
+                        <li className="nav-item">
+                            {/* <Link className="nav-link active" to="/users">Users</Link> */}
+                        </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/Feature">Features</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" to="/signup">Sign Up</Link>

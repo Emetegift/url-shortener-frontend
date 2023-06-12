@@ -21,7 +21,7 @@ const UrlShortener = () => {
         type="text"
         value={longUrl}
         onChange={(e) => setLongUrl(e.target.value)}
-        placeholder="Enter URL to shorten"
+        placeholder="Paste Long Url..."
       />
       <button onClick={shortenUrl}>Trim Url</button>
       {shortUrl && (
