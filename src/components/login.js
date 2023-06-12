@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "../css/login.css";
-import axios from "axios";
+import { Form, Button } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { BASE_URL } from "../utils/constant";
 
 function Login() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
     password: ""
   });
-  const [flashMessage, setFlashMessage] = useState(""); // add flashMessage state variable
+  const [flashMessage, setFlashMessage] = useState("");
 
   const location = useLocation();
   const message = location.state && location.state.message;
@@ -24,33 +24,29 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // prevent default form submission
+    e.preventDefault();
     try {
       const response = await axios.post(`${BASE_URL}/login`, user);
-      const data = response.data; // get data from response
+      const data = response.data;
       console.log(data);
       if (message) {
-        setFlashMessage(message); // set flash message from location state if redirected from register component
+        setFlashMessage(message);
       }
       setUser({
         email: "",
         password: ""
       });
       if (data) {
-          // handle successful login, e.g. redirect to dashboard
-          navigate("/dashboard", { state: { message: `Welcome` } });
-    
-          // Store access token in local storage
-          localStorage.setItem("accessToken", data.access_token);
-          localStorage.setItem("refreshToken", data.refresh_token);
-          setTimeout(() => {
-                window.location.reload();          
-            }, 1000);
+        navigate("/dashboard", { state: { message: `Welcome` } });
+        localStorage.setItem("accessToken", data.access_token);
+        localStorage.setItem("refreshToken", data.refresh_token);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       }
-
     } catch (error) {
       console.error(error);
-      setFlashMessage(error.response.data.message); // set flash message from error response
+      setFlashMessage(error.response.data.message);
     }
   };
 
@@ -60,33 +56,41 @@ function Login() {
       {message && <div className="messg">{message}</div>}
       {flashMessage && <div className="flash-message2">{flashMessage}</div>}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label> <br />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your email.."
-          value={user.email}
-          onChange={handleChange}
-        />{" "}
-        <br />
-        <label htmlFor="password">Password</label> <br />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Your password.."
-          value={user.password}
-          onChange={handleChange}
-        />{" "}
-        <br />
-        <input type="submit" value="Submit" />
-        <span className="psw">
-          Don't have an account? &nbsp;{" "}
-          <Link className="link" to="/register">
-            SignUp
-          </Link>
-        </span>
+        <Form.Group>
+          <h1>Start shrinking!</h1>
+          <small>
+            Do not have an account? <Link to="/register">Create an account</Link>
+          </small>
+        </Form.Group>
+        <br></br>
+        <Form.Group>
+          <Form.Label  htmlFor="email">Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter email address..."
+            value={user.email}
+            name="email"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <br></br>
+        <Form.Group>
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password..."
+            value={user.password}
+            name="password"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <br></br>
+        <Form.Group>
+          <Button as="sub" variant="primary" type="submit">
+            Login
+          </Button>
+        </Form.Group>
+        <br></br>
       </form>
     </div>
   );

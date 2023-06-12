@@ -58,7 +58,7 @@ function Dashboard() {
       </div>
 
       <div className="shorten-url">
-        <Link to="/shorten-url" className="link-url">
+        <Link to="/UrlShortener" className="link-url">
           Shorten URL
         </Link>
       </div>
