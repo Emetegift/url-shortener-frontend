@@ -3,7 +3,7 @@ import "../css/App.css";
 import Home from "./Home";
 import Login from "./login";
 // import Feature from "./Feature";
-import SignUp from "./signup";
+import SignUp from "./register";
 import UsersList from "./users";
 import Dashboard from "./dashboard";
 import ShortenUrl from "./UrlShortener";
@@ -41,7 +41,7 @@ function App() {
             <NavBar/>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/register" element={<SignUp />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/Feature" element={<Features />} />
                 <Route path="/users" element={<UsersList/>} />

@@ -8,13 +8,19 @@ function SignUp() {
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
   const navigate = useNavigate();
   
+  
   const [user, setUser] = useState({
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     username: "",
     email: "",
     password: "",
     confirm_password: ""
+    // username:user.username,
+    // firstName:user.firstName,
+    // lastName:user.lastName,
+    // email:user.email,
+    // password:user.password
   });
 
   const [flashMessage, setFlashMessage] = useState("");
@@ -28,9 +34,10 @@ function SignUp() {
   };
 
   const onSubmit = async (data) => {
+    console.log(data)
     if (data.password === data.confirmPassword) {
       try {
-        const response = await axios.post("http://localhost:5000/signup", user, data);
+        const response = await axios.post("http://localhost:5000/register", user, data);
         console.log(response.data);
         navigate('/login', { state: { message: "Registration successful!" } });
         reset(); // Clear the form fields
@@ -41,6 +48,13 @@ function SignUp() {
       alert("Passwords do not match");
     }
   };
+
+  console.log(watch("username"));
+  console.log(watch("firstName"));
+  console.log(watch("lastName"));
+  console.log(watch("email"));
+  console.log(watch("password"));
+  console.log(watch("confirmPassword"))
 
   return (
     <div className="container">

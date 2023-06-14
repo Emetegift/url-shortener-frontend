@@ -28,7 +28,7 @@ const NavBar =()=>{
                             <Link className="nav-link active" to="/Feature">Features</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/signup">Sign Up</Link>
+                            <Link className="nav-link active" to="/register">Sign Up</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link active" to="/login">Login</Link>
