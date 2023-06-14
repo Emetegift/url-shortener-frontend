@@ -10,8 +10,8 @@ function SignUp() {
   
   
   const [user, setUser] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     username: "",
     email: "",
     password: "",
@@ -35,9 +35,13 @@ function SignUp() {
 
   const onSubmit = async (data) => {
     console.log(data)
-    if (data.password === data.confirmPassword) {
+    // console.log(user)
+    if (data.password === data.confirm_password) {
       try {
-        const response = await axios.post("http://localhost:5000/register", user, data);
+        const response = await axios.post("http://localhost:5000/register", data, {
+          headers: {
+            'Content-Type': 'application/json'
+          }});
         console.log(response.data);
         navigate('/login', { state: { message: "Registration successful!" } });
         reset(); // Clear the form fields
@@ -50,11 +54,11 @@ function SignUp() {
   };
 
   console.log(watch("username"));
-  console.log(watch("firstName"));
-  console.log(watch("lastName"));
+  console.log(watch("first_name"));
+  console.log(watch("last_name"));
   console.log(watch("email"));
   console.log(watch("password"));
-  console.log(watch("confirmPassword"))
+  console.log(watch("confirm_password"))
 
   return (
     <div className="container">
@@ -79,25 +83,25 @@ function SignUp() {
           </Form.Group>
           <br></br>
           <Form.Group>
-            <Form.Label htmlFor="firstName">First Name</Form.Label>
+            <Form.Label htmlFor="first_name">First Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter first name..."
-              {...register("firstName", { required: true, maxLength: 50 })}
+              {...register("first_name", { required: true, maxLength: 50 })}
             />
-            {errors.firstName && <p style={{ color: "red" }}><small>First Name is required</small></p>}
-            {errors.firstName?.type === "maxLength" && <p style={{ color: "red" }}><small>Exceeded required character</small></p>}
+            {errors.first_name && <p style={{ color: "red" }}><small>First Name is required</small></p>}
+            {errors.first_name?.type === "maxLength" && <p style={{ color: "red" }}><small>Exceeded required character</small></p>}
           </Form.Group>
           <br></br>
           <Form.Group>
-            <Form.Label htmlFor="lastName">Last Name</Form.Label>
+            <Form.Label htmlFor="last_name">Last Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter last name..."
-              {...register("lastName", { required: true, maxLength: 50 })}
+              {...register("last_name", { required: true, maxLength: 50 })}
             />
-            {errors.lastName && <p style={{ color: "red" }}><small>Last Name is required</small></p>}
-            {errors.lastName?.type === "maxLength" && <p style={{ color: "red" }}><small>Exceeded required character</small></p>}
+            {errors.last_name && <p style={{ color: "red" }}><small>Last Name is required</small></p>}
+            {errors.last_name?.type === "maxLength" && <p style={{ color: "red" }}><small>Exceeded required character</small></p>}
           </Form.Group>
           <br></br>
           <Form.Group>
@@ -123,11 +127,11 @@ function SignUp() {
           </Form.Group>
           <br></br>
           <Form.Group>
-            <Form.Label htmlFor="confirmPassword">Confirm Password</Form.Label>
+            <Form.Label htmlFor="confirm_password">Confirm Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Confirm password..."
-              {...register("confirmPassword", { required: true, minLength: 6 })}
+              {...register("confirm_password", { required: true, minLength: 6 })}
             />
             {errors.confirmPassword && <p style={{ color: "red" }}><small>Confirm Password</small></p>}
             {errors.confirmPassword?.type === "minLength" && <p style={{ color: "red" }}><small>Min character should be 6</small></p>}
