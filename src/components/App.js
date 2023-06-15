@@ -50,11 +50,6 @@ function App() {
                 
             </Routes>
 
-
-
-
-
-
         </div>
         
         

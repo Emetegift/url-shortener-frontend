@@ -16,11 +16,6 @@ function SignUp() {
     email: "",
     password: "",
     confirm_password: ""
-    // username:user.username,
-    // firstName:user.firstName,
-    // lastName:user.lastName,
-    // email:user.email,
-    // password:user.password
   });
 
   const [flashMessage, setFlashMessage] = useState("");
@@ -67,7 +62,7 @@ function SignUp() {
           <Form.Group>
             <center>
               <h1>Sign up and start shrinking!</h1>
-              <small>Already have an account? <Link to='/login'>Login</Link></small>
+              <small><Link to='/login'>Already have an account?</Link></small>
             </center>
           </Form.Group>
           <br></br>

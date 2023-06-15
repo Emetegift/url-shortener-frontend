@@ -15,7 +15,7 @@ const Home=()=>{
                 <br /> Whether you're sharing links on social media, 
                 <br /> sending emails, or simply want to keep your URLs concise, 
                 <br /> QuickLink has got you covered.</p>
-                <Link to="/signup" className="btn btn-primary btn-lg">Get Started</Link>
+                <Link to="/register" className="btn btn-primary btn-lg">Get Started</Link>
 
             <br />
             <br />

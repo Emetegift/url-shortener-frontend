@@ -1,98 +1,91 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const UrlShortener = () => {
-  // const [original_url, setLongUrl] = useState('');
-  // const [short_url, setShortUrl] = useState('');
-
-//   const shortenUrl = async () => {
-//     try {
-//       const response = await axios.post("http://localhost:5000/short-urls", { original_url });
-//       setShortUrl(response.data.shortUrl);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-  // return (
-  //   <div>
-  //     <h2>URL Shortener</h2>
-  //     <input
-  //       type="text"
-  //       value={original_url}
-  //       onChange={(e) => setLongUrl(e.target.value)}
-  //       placeholder="Paste Long Url..."
-  //     />
-  //     <button onClick={shortenUrl}>Trim Url</button>
-  //     {short_url && (
-  //       <p>
-  //         Short URL: <a href={short_url}>{short_url}</a>
-  //       </p>
-  //     )}
-  //   </div>
-  // );
-// };
-
-// export default UrlShortener;
-
-
-
-
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/constant";
+// import "../css/shorten.css";
+import api from "./refresh_token";
 
-function UrlShortener() {
-  const [original_url, setOriginalUrl] = useState('');
-  const [short_url, setShortUrl] = useState('');
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const navigate = useNavigate();
+export default function UrlShortener() {
+    const [responseData, setResponseData] = useState({});
+    const [urlLink, setUrlLink] = useState({ original_url: "original_url"});
+    const [message, setMessage] = useState("");
+    const [flashMessage, setFlashMessage] = useState("");
   
-  const onSubmit = async (data) => {
-    console.log(data);
-    if (data.original_url === data.short_url) {
-      try {
-        const response = await axios.post("http://localhost:5000/short-urls", data);
-        console.log(response.data);
-        // navigate('/UrlShortener', { state: { message: "Url trimmed successfully!" } });
-        reset(); // Clear the form fields
-      } catch (error) {
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      setUrlLink((prevUrlLink) => ({
+        ...prevUrlLink,
+        [name]: value,
+      }));
+    };
+  
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+      
+        const accessToken = localStorage.getItem("accessToken");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+      
+        try {
+          const response = await api.post(`${BASE_URL}/short-urls`, urlLink, config);
+          const responseData = response.data;
+          setResponseData(responseData);
+          console.log(responseData);
+        } catch (error) {
         console.error(error);
       }
-    } else {
-      alert("Unsupported URL pattern. The original URL and short URL must be the same.");
-    }
-  };
+  
+      if (message) {
+        setFlashMessage(message);
+      }
+  
+      setUrlLink({ original_url: "" });
+    };
 
   return (
-    <div className="container">
-      <h2>URL Shortener</h2>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group controlId="originalUrl">
-          <Form.Label>Paste Long URL:</Form.Label>
-          <Form.Control
-            type="text"
-            {...register("original_url", { required: true })}
-            value={original_url}
-            onChange={(e) => setOriginalUrl(e.target.value)}
-            placeholder="Paste Long URL..."
-          />
-          {errors.original_url && <span>This field is required.</span>}
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Trim URL
-        </Button>
-      </Form>
-      {short_url && (
-        <p>
-          Short URL: <a href={short_url}>{short_url}</a>
-        </p>
+    <div className="shot">
+      <h2>Shorten URL</h2>
+      {message && <div className="messg">{message}</div>}
+      {flashMessage && <div className="flash-message2">{flashMessage}</div>}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter URL here"
+          name="original_url"
+          value={urlLink.original_url}
+          onChange={handleChange}
+        />
+        <button type="submit">Shorten</button>
+      </form>
+      {Object.keys(responseData).length > 0 && (
+        <>
+          <div className="details">
+            <p>Short URL: <br /> <span>
+                <a href={responseData.short_url} target="_blank" rel="noreferrer">{responseData.short_url}
+                </a></span></p>
+
+            <p>Original URL: <br />
+                <span>
+                    <a href={responseData.url} target="_blank" rel="noreferrer">{responseData.url}</a>
+                </span>
+                </p>
+          </div>
+        </>
       )}
+      <div className="b2d-div">
+        <Link to="/dashboard" className="b2d">
+          Dashboard
+        </Link>
+      </div>
     </div>
   );
 }
 
-export default UrlShortener;
+
+
+
+
+
