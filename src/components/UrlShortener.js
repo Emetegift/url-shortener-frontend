@@ -4,7 +4,7 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";
-// import "../css/shorten.css";
+import QRCode from "qrcode.react";
 import api from "./refresh_token";
 
 export default function UrlShortener() {
@@ -84,7 +84,7 @@ export default function UrlShortener() {
         <div className="details">
           <Form.Group>
             <Form.Label htmlFor="short_url">Shortened URL:</Form.Label>
-           <Form.Control
+            <Form.Control
               type="text"
               name="short_url"
               readOnly
@@ -102,6 +102,9 @@ export default function UrlShortener() {
             />
           </Form.Group>
 
+          <div>
+            <QRCode value={responseData.shortened_url} />
+          </div>
         </div>
       )}
 
