@@ -1,102 +1,53 @@
-// // import React from "react";
-// // import "../css/dashboard.css";
-// // import { Link } from "react-router-dom";
-// // import { BASE_URL } from "../utils/constant";
-// // import { useEffect, useState } from "react";
-// // import axios from "axios";
-// // import QRCode from 'qrcode.react';
-// // import api from "./refresh_token";
-
-// // function Dashboard() {
-// //   const [users, setUsers] = useState([]);
-// //   const [user_links, setUserLinks] = useState([]);
-// //   // const [dashboard, setDashboard] = useState([]);
-// //   // ...
-
-// //   useEffect(() => {
-// //     const token = localStorage.getItem("accessToken"); // Get the token from local storage
-// //     const config = {
-// //       headers: {
-// //         Authorization: `Bearer ${token}`, // Include the token in the authorization header with the "Bearer" prefix
-// //       },
-// //     };
-
-// //     api.get(`${BASE_URL}/dashboard`, config) // Fetch data from the first link
-// //       .then((response) => {
-// //         // Process the data
-// //         const users = response.data;
-// //         const user_links = response.data.user_links;
-// //         setUserLinks(user_links);
-// //         setUsers(users);
-// //         // ...
-
-// //         // Fetch data from another link within the same file
-// //         // return axios.get(`${BASE_URL}/all-link`, config);
-// //       })
-// //       // .then((response) => {
-// //       //   // Process the data from the other link
-// //       //   const otherData = response.data;
-// //       //   setDashboard(otherData);
-// //       // ...
-// //       // })
-// //       .catch((error) => console.error(error));
-// //   }, []);
-
-  
-// //   // Check if the user is logged in
-// //   const isLoggedIn = localStorage.getItem("accessToken");
-// //   if (!isLoggedIn) {
-// //     // Redirect to the login page if not logged in
-// //     return <Redirect to="/login" />;
-// // //   }
-
-
 // // import { BASE_URL } from "../utils/constant";
 // // import axios from "axios";
-// // import QRCode from 'qrcode.react';
+// // import QRCode from "qrcode.react";
 // // import api from "./refresh_token";
 // // import React, { useEffect, useState } from "react";
 // // import "../css/dashboard.css";
-// // import { Link, useNavigate } from "react-router-dom";
+// // import { Link, useNavigate, Redirect } from "react-router-dom";
 
+// // function Dashboard() {
+// //   const [users, setUser] = useState({});
+// //   const [userLinks, setUserLinks] = useState([]);
+// //   const navigate = useNavigate();
 
-// //   function Dashboard() {
-    
-// //     const [username, setUsername] = useState("");
-// //     const [users, setUsers] = useState({});
-// //     const [userLinks, setUserLinks] = useState([]);
-// //     const navigate = useNavigate();
+// //   useEffect(() => {
+// //     const token = localStorage.getItem("accessToken");
+// //     const config = {
+// //       headers: {
+// //         Authorization: `Bearer ${token}`,
+// //       },
+// //     };
 
-// //     useEffect(() => {
-// //       const token = localStorage.getItem("accessToken");
-// //       const config = {
-// //         headers: {
-// //           Authorization: `Bearer ${token}`,
-// //         },
-// //       };
+// //     api
+// //       .get(`${BASE_URL}/dashboard`, config)
+// //       .then((response) => {
+// //         const { data } = response;
+// //         console.log("API response:", data);
+// //         setUser(data || {});
+// //         setUserLinks(data.user_links || []);
+// //       })
+// //       .catch((error) => console.error(error));
+// //   }, []);
 
-// //       api.get(`${BASE_URL}/dashboard`, config)
-// //         .then((response) => {
-// //           const { data } = response;
-// //           console.log("API response:", data);
-// //           setUsername(data.username || "");
-// //           setUsers(data.users || {});
-// //           setUserLinks(data.user_links || []);
-// //         })
-// //         .catch((error) => console.error(error));
-// //     }, []);
+// //   // Check if the user is logged in
+// //   const isLoggedIn = localStorage.getItem("accessToken");
+// //   if (!isLoggedIn) {
+// //     return (
+// //       <div>
+// //         <h1>Error</h1>
+// //         <p>You must log in to access the dashboard.</p>
+// //         <p>
+// //           <Link to="/login">Go to Login Page</Link>
+// //         </p>
+// //       </div>
+// //     );
+// //   }
 
-// //     // Check if the user is logged in
-// //     const isLoggedIn = localStorage.getItem("accessToken");
-// //     if (!isLoggedIn) {
-// //       // Redirect to the login page if not logged in
-// //       navigate("/login");
-// //       return null;
-// //     }
+// //   console.log("Users:", users);
+// //   console.log("User Links:", userLinks);
 
-// //     console.log("Username:", username);
-// //     console.log("Users:", users);
-// //     console.log("User Links:", userLinks);
+// //   const totalClicks = users.analytics ? users.analytics.totalClicks : +1;
 
 // //   return (
 // //     <div>
@@ -120,6 +71,10 @@
 // //           Last Name: <span>{users.last_name}</span>
 // //         </p>
 // //       </div>
+// //       <div className="analytics">
+// //         <h2>Analytics</h2>
+// //         <p>Total Clicks: {totalClicks}</p>
+// //       </div>
 
 // //       <div className="shorten-url">
 // //         <Link to="/UrlShortener" className="link-url">
@@ -130,26 +85,45 @@
 // //       <div className="url-list">
 // //         <h2>URL List</h2>
 // //         <ul className="ul-list">
-// //           {userLinks.slice().reverse().map((item) => (
-// //             <li key={item.id} className="li-list">
-// //               <div>
-// //                 <p>
-// //                   Original URL: <a href={item.url}
-// //                   target="_blank"
-// //                   >{item.url}</a>
-// //                 </p>
-// //                 <p>
-// //                   Short URL: <a href={item.short_url}
-// //                   target="_blank"
-// //                   >{item.short_url}</a>
-// //                 </p>
-// //                 <p>
-// //                   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${item.short_url}`} alt="QR Code" />
-// //                 </p>
-// //                 <p>Clicks: {item.visit}</p>
-// //               </div>
-// //             </li>
-// //           ))}
+// //           {userLinks
+// //             .slice()
+// //             .reverse()
+// //             .map((item) => (
+// //               <li key={item.id} className="li-list">
+// //                 <div>
+// //                   <p>
+// //                     Original URL:{" "}
+// //                     <a
+// //                       href={item.url}
+// //                       target="_blank"
+// //                       rel="noopener noreferrer"
+// //                     >
+// //                       {item.url}
+// //                     </a>
+// //                   </p>
+// //                   <p>
+// //                     Short URL:{" "}
+// //                     <a
+// //                       href={item.short_url}
+// //                       target="_blank"
+// //                       rel="noopener noreferrer"
+// //                     >
+// //                       {item.short_url}
+// //                     </a>
+// //                   </p>
+// //                   <QRCode
+// //                     value={item.short_url}
+// //                     size={128}
+// //                     level="H"
+// //                     includeMargin={true}
+// //                   />
+// //                   <p className="title-head">
+// //                     Clicks:{" "}
+// //                     <span>{item.analytics ? item.analytics.totalClicks : 0}</span>
+// //                   </p>
+// //                 </div>
+// //               </li>
+// //             ))}
 // //         </ul>
 // //       </div>
 // //     </div>
@@ -159,299 +133,20 @@
 // // export default Dashboard;
 
 
-// // import React, { useEffect, useState } from "react";
-// // import "../css/dashboard.css";
-// // import { Link, useNavigate } from "react-router-dom";
-// // import { BASE_URL } from "../utils/constant";
-// // import axios from "axios";
-// // import QRCode from 'qrcode.react';
-// // import api from "./refresh_token";
-
-// // function Dashboard() {
-// //   const [users, setUsers] = useState({});
-// //   const [userLinks, setUserLinks] = useState([]);
-// //   const navigate = useNavigate();
-
-// //   useEffect(() => {
-// //     const token = localStorage.getItem("accessToken");
-// //     const config = {
-// //       headers: {
-// //         Authorization: `Bearer ${token}`,
-// //       },
-// //     };
-
-// //     api.get(`${BASE_URL}/dashboard`, config)
-// //       .then((response) => {
-// //         const { data } = response;
-// //         setUsers(data.users);
-// //         setUserLinks(data.user_links);
-// //       })
-// //       .catch((error) => console.error(error));
-// //   }, []);
-
-// //   // Check if the user is logged in
-// //   const isLoggedIn = localStorage.getItem("accessToken");
-// //   if (!isLoggedIn) {
-// //     // Redirect to the login page if not logged in
-// //     navigate("/login");
-// //     // return null;
-// //   }
-
-//   // return (
-//   //   <div>
-//   //     <h1>Dashboard</h1>
-
-//   //     <div className="user-profile">
-//   //       <h2>User Profile</h2>
-//   //       <p className="title-head">
-//   //         Username: <span>{users.username}</span>
-//   //       </p>
-//   //       <p className="title-head">
-//   //         Email:{" "}
-//   //         <span>
-//   //           <a href={`mailto:${users.email}`}>{users.email}</a>
-//   //         </span>
-//   //       </p>
-//   //       <p className="title-head">
-//   //         First Name: <span>{users.first_name}</span>
-//   //       </p>
-//   //       <p className="title-head">
-//   //         Last Name: <span>{users.last_name}</span>
-//   //       </p>
-//   //     </div>
-
-//   //     <div className="shorten-url">
-//   //       <Link to="/UrlShortener" className="link-url">
-//   //         Shorten URL
-//   //       </Link>
-//   //     </div>
-
-//   //     <div className="url-list">
-//   //       <h2>URL List</h2>
-//   //       <ul className="ul-list">
-//   //         {userLinks.slice().reverse().map((item) => (
-//   //           <li key={item.id} className="li-list">
-//   //             <div>
-//   //               <p>
-//   //                 Original URL: <a href={item.url} target="_blank">{item.url}</a>
-//   //               </p>
-//   //               <p>
-//   //                 Short URL: <a href={item.short_url} target="_blank">{item.short_url}</a>
-//   //               </p>
-//   //               <p>
-//   //                 <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${item.short_url}`} alt="QR Code" />
-//   //               </p>
-//   //               <p>Clicks: {item.visit}</p>
-//   //             </div>
-//   //           </li>
-//   //         ))}
-//   //       </ul>
-//   //     </div>
-//   //   </div>
-//   // );
-// // }
-
-// // export default Dashboard;
-
-
-
-// // import { BASE_URL } from "../utils/constant";
-// // import axios from "axios";
-// // import QRCode from 'qrcode.react';
-// // import api from "./refresh_token";
-// // import React, { useEffect, useState } from "react";
-// // import "../css/dashboard.css";
-// // import { Link, useNavigate } from "react-router-dom";
-
-
-// //   function Dashboard() {
-// //     const [username, setUsername] = useState("");
-// //     const [users, setUsers] = useState({});
-// //     const [userLinks, setUserLinks] = useState([]);
-// //     const navigate = useNavigate();
-
-// //     useEffect(() => {
-// //       const token = localStorage.getItem("accessToken");
-// //       const config = {
-// //         headers: {
-// //           Authorization: `Bearer ${token}`,
-// //         },
-// //       };
-
-// //       api.get(`${BASE_URL}/dashboard`, config)
-// //         .then((response) => {
-// //           const { data } = response;
-// //           console.log("API response:", data);
-// //           setUsername(data.username || "");
-// //           setUsers(data.users || {});
-// //           setUserLinks(data.user_links || []);
-// //         })
-// //         .catch((error) => console.error(error));
-// //     }, []);
-
-// //     // Check if the user is logged in
-// //     const isLoggedIn = localStorage.getItem("accessToken");
-// //     if (!isLoggedIn) {
-// //       // Redirect to the login page if not logged in
-// //       navigate("/login");
-// //       return null;
-// //     }
-
-// //     console.log("Username:", username);
-// //     console.log("Users:", users);
-// //     console.log("User Links:", userLinks);
-
-// //     return (
-// //       <div>
-// //         <h1>Dashboard</h1>
-
-// //         <div className="user-profile">
-// //           <h2>User Profile</h2>
-// //           <p className="title-head">
-// //             Username: <span>{users.username}</span>
-// //           </p>
-// //           <p className="title-head">
-// //             Email:{" "}
-// //             <span>
-// //               <a href={`mailto:${users.email}`}>{users.email}</a>
-// //             </span>
-// //           </p>
-// //           <p className="title-head">
-// //             First Name: <span>{users.first_name}</span>
-// //           </p>
-// //           <p className="title-head">
-// //             Last Name: <span>{users.last_name}</span>
-// //           </p>
-// //         </div>
-
-// //         <div className="shorten-url">
-// //           <Link to="/UrlShortener" className="link-url">
-// //             Shorten URL
-// //           </Link>
-// //         </div>
-
-// //         <div className="url-list">
-// //           <h2>URL List</h2>
-// //           <ul className="ul-list">
-// //             {userLinks.slice().reverse().map((item) => (
-// //               <li key={item.id} className="li-list">
-// //                 <div>
-// //                   <p>
-// //                     Original URL: <a href={item.url} target="_blank">{item.url}</a>
-// //                   </p>
-// //                   <p>
-// //                     Short URL: <a href={item.short_url} target="_blank">{item.short_url}</a>
-// //                   </p>
-// //                   <p>
-// //                     <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${item.short_url}`} alt="QR Code" />
-// //                   </p>
-// //                   <p>Clicks: {item.visit}</p>
-// //                 </div>
-// //               </li>
-// //             ))}
-// //           </ul>
-// //         </div>
-// //       </div>
-// //     );
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-//     // return (
-//     //   <div>
-//     //     <h1>Dashboard</h1>
-
-//     //     <div className="user-profile">
-//     //       <h2>User Profile</h2>
-//     //       <p className="title-head">
-//     //         Username: <span>{users.username}</span>
-//     //       </p>
-//     //       <p className="title-head">
-//     //         Email:{" "}
-//     //         <span>
-//     //           <a href={`mailto:${users.email}`}>{users.email}</a>
-//     //         </span>
-//     //       </p>
-//     //       <p className="title-head">
-//     //         First Name: <span>{users.first_name}</span>
-//     //       </p>
-//     //       <p className="title-head">
-//     //         Last Name: <span>{users.last_name}</span>
-//     //       </p>
-//     //     </div>
-
-//     //     <div className="shorten-url">
-//     //       <Link to="/UrlShortener" className="link-url">
-//     //         Shorten URL
-//     //       </Link>
-//     //     </div>
-
-//     //     <div className="url-list">
-//     //       <h2>URL List</h2>
-//     //       <ul className="ul-list">
-//     //         {userLinks.slice().reverse().map((item) => (
-//     //           <li key={item.id} className="li-list">
-//     //             <div>
-//     //               <p>
-//     //                 Original URL: <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
-//     //               </p>
-//     //               <p>
-//     //                 Short URL: <a href={item.short_url} target="_blank" rel="noopener noreferrer">{item.short_url}</a>
-//     //               </p>
-//     //               <p>
-//     //                 <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${item.short_url}`} alt="QR Code" />
-//     //               </p>
-//     //               <p>Clicks: {item.visit}</p>
-//     //             </div>
-//     //           </li>
-//     //         ))}
-//     //       </ul>
-//     //     </div>
-//     //   </div>
-//     // );
-//   // }
-
-//   // export default Dashboard;
-
-
-
-
-
-
-//   import { BASE_URL } from "../utils/constant";
-// import axios from "axios";
-// import QRCode from 'qrcode.react';
-// import api from "./refresh_token";
-// import React, { useEffect, useState } from "react";
-// import "../css/dashboard.css";
-// import { Link, useNavigate, Redirect } from "react-router-dom";
+import { BASE_URL } from "../utils/constant";
+import axios from "axios";
+import QRCode from "qrcode.react";
+import api from "./refresh_token";
+import React, { useEffect, useState } from "react";
+import "../css/dashboard.css";
+import { Link, useNavigate, Redirect } from "react-router-dom";
 
 // function Dashboard() {
-//   const [username, setUsername] = useState("");
-//   const [users, setUsers] = useState({});
+//   const [users, setUser] = useState({});
 //   const [userLinks, setUserLinks] = useState([]);
 //   const navigate = useNavigate();
 
@@ -463,12 +158,12 @@
 //       },
 //     };
 
-//     api.get(`${BASE_URL}/dashboard`, config)
+//     api
+//       .get(`${BASE_URL}/dashboard`, config)
 //       .then((response) => {
 //         const { data } = response;
 //         console.log("API response:", data);
-//         setUsername(data.username || "");
-//         setUsers(data.users || {});
+//         setUser(data || {});
 //         setUserLinks(data.user_links || []);
 //       })
 //       .catch((error) => console.error(error));
@@ -477,14 +172,30 @@
 //   // Check if the user is logged in
 //   const isLoggedIn = localStorage.getItem("accessToken");
 //   if (!isLoggedIn) {
-//     // Redirect to the login page if not logged in
-//     navigate("/login");
-//     return null;
+//     return (
+//       <div>
+//         <h1>Error</h1>
+//         <p>You must log in to access the dashboard.</p>
+//         <p>
+//           <Link to="/login">Go to Login Page</Link>
+//         </p>
+//       </div>
+//     );
 //   }
 
-//   console.log("Username:", username);
 //   console.log("Users:", users);
 //   console.log("User Links:", userLinks);
+
+//   const totalClicks = users.analytics ? users.analytics.totalClicks + 1 : 1;
+
+//   const handleLinkClick = (linkId) => {
+//     api
+//       .post(`${BASE_URL}/clicks`, { linkId })
+//       .then((response) => {
+//         console.log("Click recorded:", response.data);
+//       })
+//       .catch((error) => console.error(error));
+//   };
 
 //   return (
 //     <div>
@@ -508,6 +219,10 @@
 //           Last Name: <span>{users.last_name}</span>
 //         </p>
 //       </div>
+//       <div className="analytics">
+//         <h2>Analytics</h2>
+//         <p>Total Clicks: {totalClicks}</p>
+//       </div>
 
 //       <div className="shorten-url">
 //         <Link to="/UrlShortener" className="link-url">
@@ -518,22 +233,75 @@
 //       <div className="url-list">
 //         <h2>URL List</h2>
 //         <ul className="ul-list">
-//           {userLinks.slice().reverse().map((item) => (
-//             <li key={item.id} className="li-list">
-//               <div>
-//                 <p>
-//                   Original URL: <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
-//                 </p>
-//                 <p>
-//                   Short URL: <a href={item.short_url} target="_blank" rel="noopener noreferrer">{item.short_url}</a>
-//                 </p>
-//                 <p>
-//                   <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${item.short_url}`} alt="QR Code" />
-//                 </p>
-//                 <p>Clicks: {item.visit}</p>
-//               </div>
-//             </li>
-//           ))}
+
+//         {userLinks
+//         .slice()
+//         .reverse()
+//         .map((item) => (
+//           <li key={item.id} className="li-list">
+//             <div>
+//               <p>
+//                 Original URL:{" "}
+//                 <a href={item.url} target="_blank" rel="noopener noreferrer">
+//                   {item.url}
+//                 </a>
+//               </p>
+//               <p>
+//                 Short URL:{" "}
+//                 <a
+//                   href={item.short_url}
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                 >
+//                   {item.short_url}
+//                 </a>
+//               </p>
+//               <p>Clicks: {item.visit}</p>
+//               <QRCode value={item.short_url} size={150} />
+//             </div>
+//           </li>
+//         ))}
+
+//           {/* {userLinks
+//             .slice()
+//             .reverse()
+//             .map((item) => (
+//               <li key={item.id} className="li-list">
+//                 <div>
+//                   <p>
+//                     Original URL:{" "}
+//                     <a
+//                       href={item.url}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                     >
+//                       {item.url}
+//                     </a>
+//                   </p>
+//                   <p>
+//                     Short URL:{" "}
+//                     <a
+//                       href={item.short_url}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       onClick={() => handleLinkClick(item.id)}
+//                     >
+//                       {item.short_url}
+//                     </a>
+//                   </p>
+//                   <QRCode
+//                     value={item.short_url}
+//                     size={128}
+//                     level="H"
+//                     includeMargin={true}
+//                   />
+//                   <p className="title-head">
+//                     Clicks:{" "}
+//                     <span>{item.analytics ? item.analytics.totalClicks : 0}</span>
+//                   </p>
+//                 </div>
+//               </li>
+//             ))} */}
 //         </ul>
 //       </div>
 //     </div>
@@ -546,19 +314,8 @@
 
 
 
-
-
-import { BASE_URL } from "../utils/constant";
-import axios from "axios";
-import QRCode from 'qrcode.react';
-import api from "./refresh_token";
-import React, { useEffect, useState } from "react";
-import "../css/dashboard.css";
-import { Link, useNavigate, Redirect } from "react-router-dom";
-
 function Dashboard() {
-  const [username, setUsername] = useState("");
-  const [users, setUsers] = useState({});
+  const [users, setUser] = useState({});
   const [userLinks, setUserLinks] = useState([]);
   const navigate = useNavigate();
 
@@ -570,12 +327,12 @@ function Dashboard() {
       },
     };
 
-    api.get(`${BASE_URL}/dashboard`, config)
+    api
+      .get(`${BASE_URL}/dashboard`, config)
       .then((response) => {
         const { data } = response;
         console.log("API response:", data);
-        setUsername(data.username || "");
-        setUsers(data.users || {});
+        setUser(data || {});
         setUserLinks(data.user_links || []);
       })
       .catch((error) => console.error(error));
@@ -584,14 +341,21 @@ function Dashboard() {
   // Check if the user is logged in
   const isLoggedIn = localStorage.getItem("accessToken");
   if (!isLoggedIn) {
-    // Redirect to the login page if not logged in
-    navigate("/login");
-    return null;
+    return (
+      <div>
+        <h1>Error</h1>
+        <p>You must log in to access the dashboard.</p>
+        <p>
+          <Link to="/login">Go to Login Page</Link>
+        </p>
+      </div>
+    );
   }
 
-  console.log("Username:", username);
   console.log("Users:", users);
   console.log("User Links:", userLinks);
+
+  const totalClicks = users.analytics ? users.analytics.totalClicks : 0;
 
   return (
     <div>
@@ -615,6 +379,10 @@ function Dashboard() {
           Last Name: <span>{users.last_name}</span>
         </p>
       </div>
+      <div className="analytics">
+        <h2>Analytics</h2>
+        <p>Total Clicks: {totalClicks}</p>
+      </div>
 
       <div className="shorten-url">
         <Link to="/UrlShortener" className="link-url">
@@ -625,19 +393,33 @@ function Dashboard() {
       <div className="url-list">
         <h2>URL List</h2>
         <ul className="ul-list">
-          {userLinks.slice().reverse().map((item) => (
+          {userLinks.map((item) => (
             <li key={item.id} className="li-list">
               <div>
                 <p>
-                  Original URL: <a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
+                  Original URL:{" "}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.url}
+                  </a>
                 </p>
                 <p>
-                  Short URL: <a href={item.short_url} target="_blank" rel="noopener noreferrer">{item.short_url}</a>
+                  Short URL:{" "}
+                  <a
+                    href={item.short_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.short_url}
+                  </a>
                 </p>
-                <div className="qr-code-container">
-                  <QRCode value={item.short_url} size={150} />
-                </div>
-                <p>Clicks: {item.visit}</p>
+                <QRCode value={item.short_url} size={128} level="H" includeMargin={true} />
+                <p className="title-head">
+                  Clicks: <span>{item.analytics ? item.analytics.totalClicks : 0}</span>
+                </p>
               </div>
             </li>
           ))}
@@ -648,4 +430,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-

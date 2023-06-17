@@ -68,7 +68,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../css/App.css";
 import Home from "./Home";
 import Login from "./login"
-import LogoutButton from "./LogoutButton";
+import Logout from "./logout";
 // import { LogoutButton } from "./LogoutButton"; // Importing the corrected component name
 import SignUp from "./register";
 import UsersList from "./users";
@@ -101,7 +101,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<LogoutButton />} /> {/* Use the corrected component name */}
+        <Route path="/logout" element={<Logout />} /> {/* Use the corrected component name */}
         <Route path="/Feature" element={<Features />} />
         <Route path="/users" element={<UsersList />} />
         <Route path="/dashboard" element={<Dashboard />} />

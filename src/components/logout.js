@@ -1,31 +1,42 @@
-import React from "react";
-// import axios from "axios";
+import React, { useEffect } from 'react';
 
+const Logout = () => {
+  useEffect(() => {
+    const revokeAuth = async () => {
+      try {
+        const response = await fetch('/revoke_auth', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+          },
+        });
 
-// export const logout = () => {
+        if (response.ok) {
+          // Remove the access token from local storage
+          localStorage.removeItem('accessToken');
+          // Redirect to the login page or any other desired page
+          window.location.href = '/login'; // Perform a full page reload
+        } else {
+          const data = await response.json();
+          // Handle error responses
+          console.log('Logout failed:', data.msg);
+        }
+      } catch (error) {
+        console.error('Logout error:', error);
+        // Handle network errors or any other errors
+      }
+    };
 
-//       localStorage.removeItem("accessToken");
-//       window.location.href = "/";
-//         setTimeout(() => {
-//           window.location.reload();             
-//         }, 1000);
-// }
+    revokeAuth();
+  }, []);
 
-
-
-
-
-import axios from "axios";
-
-export const Logout = async () => {
-  try {
-    await axios.delete("/logout");
-    localStorage.removeItem("accessToken");
-    window.location.href = "/";
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-  } catch (error) {
-    console.error("Logout failed:", error);
-  }
+  return (
+    <div>
+      <h1>Logging out...</h1>
+      {/* You can show a loading spinner or any other UI element here */}
+    </div>
+  );
 };
+
+export default Logout;
