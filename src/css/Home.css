@@ -1,0 +1,94 @@
+.home {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align:justify
+  }
+  
+  .head {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #005eff;
+  }
+  
+  .content {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #008eff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #005eff;
+    width: 80%;
+  }
+  
+  .messg {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .flash-message2 {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button[type="submit"] {
+    padding: 12px 24px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: #008eff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #005eff;
+  }
+  
+  p {
+    margin-bottom: 5px;
+  }
+  
+  .small {
+    font-size: 14px;
+    color: red;
+  }
+  

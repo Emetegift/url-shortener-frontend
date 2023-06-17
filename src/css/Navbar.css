@@ -1,17 +1,68 @@
-.container{
-    margin-top:50px;
-}
-.content{
-    font-size: 1.5em;
-    font-family:Arial, Helvetica, sans-serif
-}
-.heading{
-    font-size: 3em;
-}
-.btn{
-    font-size: 2em;
-}
-.form{
-    margin:auto ;
-    width:80%;
-}
+/* Navbar.css */
+
+.navbar {
+    background-color: #f1f3f7;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f72323;
+  }
+  
+  .navbar-brand:hover {
+    color: #201c1c;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler:focus {
+    outline: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .nav-item.active .nav-link {
+    color: #423e3e;
+    font-weight: bold;
+  }
+  
+  .navbar-nav {
+    align-items: center;
+    color: #0a0505;
+  }
+  
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar-nav .nav-item + .nav-item {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 1.2rem;
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 0.9rem;
+    }
+  }
+  
