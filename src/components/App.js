@@ -1,59 +1,3 @@
-
-
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import "../css/App.css";
-// import Home from "./Home";
-// import Login from "./login";
-// import Logout from "./logout";
-// import About from "./about";
-// import SignUp from "./register";
-// import UsersList from "./users";
-// import Dashboard from "./dashboard";
-// import ShortenUrl from "./UrlShortener";
-// import { useEffect, useState } from "react";
-// import NavBar from "./Navbar";
-// import Features from "./Feature";
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { Switch } from 'react-router-dom';
-
-// function App() {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-//   useEffect(() => {
-//     const accessToken = localStorage.getItem("accessToken");
-//     if (accessToken !== null) {
-//       setIsLoggedIn(true);
-//     } else {
-//       setIsLoggedIn(false);
-//     }
-//   }, []);
-
-//   return (
-//     <div className="">
-//       <NavBar isLoggedIn={isLoggedIn} />
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/register" element={<SignUp />} />
-//         <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
-//         <Route path="/logout" element={<Logout onLogout={() => setIsLoggedIn(false)} />} />
-//         <Route path="/about" element={<About />} />
-//         <Route path="/Feature" element={<Features />} />
-//         <Route path="/users" element={<UsersList />} />
-//         <Route path="/dashboard" element={<Dashboard />} />
-//         <Route path="/UrlShortener" element={<ShortenUrl />} />
-//       </Routes>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-
-
-
-
 import 'bootstrap/dist/css/bootstrap.min.css'; // Imports the Bootstrap CSS file
 import "../css/App.css"; // Imports the 'App.css' file located in the '../css' directory
 import Home from "./Home"; // Imports the 'Home' component
@@ -64,11 +8,9 @@ import SignUp from "./register"; // Imports the 'SignUp' component
 import UsersList from "./users"; // Imports the 'UsersList' component
 import Dashboard from "./dashboard"; // Imports the 'Dashboard' component
 import ShortenUrl from "./UrlShortener"; // Imports the 'ShortenUrl' component
-
 import { useEffect, useState } from "react"; // Imports the 'useEffect' and 'useState' hooks from 'react'
 import NavBar from "./Navbar"; // Imports the 'NavBar' component
 import Features from "./Feature"; // Imports the 'Features' component
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Imports necessary components from 'react-router-dom'
 import { Switch } from 'react-router-dom'; // Imports the 'Switch' component from 'react-router-dom'
 

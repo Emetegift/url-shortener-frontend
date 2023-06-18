@@ -35,7 +35,7 @@ export default function UrlShortener() {
 
     const requestBody = {
       ...urlLink,
-      user_id: 1, // Replace with the actual user ID
+      user_id: +1, // Replace with the actual user ID
     };
 
     try {
