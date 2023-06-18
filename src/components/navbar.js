@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import '../css/Navbar.css';
 
-const NavBar = ({ isLoggedIn }) => {
+const Navbar = ({ isLoggedIn }) => {
   const handleLogout = () => {
     // Handle logout logic here
   };
@@ -49,4 +49,4 @@ const NavBar = ({ isLoggedIn }) => {
   );
 }
 
-export default NavBar;
+export default Navbar;

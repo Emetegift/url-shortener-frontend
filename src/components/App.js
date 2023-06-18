@@ -9,7 +9,7 @@ import UsersList from "./users"; // Imports the 'UsersList' component
 import Dashboard from "./dashboard"; // Imports the 'Dashboard' component
 import ShortenUrl from "./UrlShortener"; // Imports the 'ShortenUrl' component
 import { useEffect, useState } from "react"; // Imports the 'useEffect' and 'useState' hooks from 'react'
-import NavBar from "./Navbar"; // Imports the 'NavBar' component
+import Navbar from "./Navbar"; // Imports the 'NavBar' component
 import Features from "./Feature"; // Imports the 'Features' component
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Imports necessary components from 'react-router-dom'
 import { Switch } from 'react-router-dom'; // Imports the 'Switch' component from 'react-router-dom'
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="">
       {/* // Renders the 'NavBar' component with the 'isLoggedIn' prop */}
-      <NavBar isLoggedIn={isLoggedIn} /> 
+      <Navbar isLoggedIn={isLoggedIn} /> 
       {/* // Defines a container for routing components */}
       <Routes> 
       {/* // Renders the 'Home' component when the path matches '/' */}
