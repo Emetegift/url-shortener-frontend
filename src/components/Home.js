@@ -71,7 +71,7 @@ export default function Home() {
         <br /> Whether you're sharing links on social media,
         <br /> sending emails, or simply want to keep your URLs concise,
         <br /> QuickLink has got you covered.</p>
-      <Link to="/register" className="btn btn-primary btn-lg">Get Started</Link>
+      <Link to="/register" className="btn btn-primary btn-lg">Get Started for Free</Link>
 
       <br />
       <br />
@@ -95,7 +95,7 @@ export default function Home() {
         <br />
 
         <Form.Group>
-          <Form.Label htmlFor="custom_url">Custom URL (optional):</Form.Label> {/* Add a new input field for custom_url */}
+          <Form.Label htmlFor="custom_url">Customize URL (optional):</Form.Label> {/* Add a new input field for custom_url */}
           <Form.Control
             type="text"
             name="custom_url"

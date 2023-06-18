@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";
 import QRCode from "qrcode.react";
 import api from "./refresh_token";
+import '../css/shortener.css';
 
 export default function UrlShortener() {
   const { formState: { errors }, reset, watch } = useForm();
@@ -55,7 +56,7 @@ export default function UrlShortener() {
 
   return (
     <div className="container">
-      <h2>Trim your long URL</h2>
+      <h1>Trim your long URL</h1>
       {message && <div className="messg">{message}</div>}
       {flashMessage && <div className="flash-message2">{flashMessage}</div>}
       <form onSubmit={handleSubmit}>
@@ -74,7 +75,7 @@ export default function UrlShortener() {
         <br />
 
         <Form.Group>
-          <Form.Label htmlFor="custom_url">Custom URL (optional):</Form.Label> {/* Add a new input field for custom_url */}
+          <Form.Label htmlFor="custom_url">Customize URL (optional):</Form.Label> {/* Add a new input field for custom_url */}
           <Form.Control
             type="text"
             name="custom_url"
