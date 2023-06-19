@@ -33,7 +33,7 @@
   
   .cta-button:hover {
     background-color: #005eff;
-    /* text-align: center; */
+  
   }
   
   @media screen and (max-width: 768px) {

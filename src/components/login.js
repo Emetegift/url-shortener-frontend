@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
-import "../css/login.css";
+// import "../css/login.css";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";

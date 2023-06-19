@@ -76,42 +76,6 @@ export default function Home() {
       <br />
       <br />
 
-      <h2>Trim your long URL</h2>
-      {message && <div className="messg">{message}</div>}
-      {flashMessage && <div className="flash-message2">{flashMessage}</div>}
-      <form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label htmlFor="original url">Original URL:</Form.Label>
-          <Form.Control
-            type="text"
-            name="original_url"
-            placeholder="Paste long link here..."
-            value={urlLink.original_url}
-            onChange={handleChange}
-          />
-          {errors.original_url && <p style={{ color: "red" }}><small>Long URL is required</small></p>}
-          {errors.original_url?.type === "maxLength" && <p style={{ color: "red" }}><small>Exceeded required character</small></p>}
-        </Form.Group>
-        <br />
-
-        <Form.Group>
-          <Form.Label htmlFor="custom_url">Customize URL (optional):</Form.Label> {/* Add a new input field for custom_url */}
-          <Form.Control
-            type="text"
-            name="custom_url"
-            placeholder="Enter custom URL..."
-            value={urlLink.custom_url}
-            onChange={handleChange}
-          />
-        </Form.Group>
-        <br />
-
-        <Form.Group>
-          <center>
-            <Button type="submit" variant="primary">Trim URL</Button>
-          </center>
-        </Form.Group>
-      </form>
     </div>
   );
 }

@@ -26,7 +26,7 @@ body {
     text-decoration: none;
   }
   
-  /* Dashboard Container */
+ 
   
   .dashboard-container {
     max-width: 800px;
@@ -34,7 +34,8 @@ body {
     padding: 20px;
   }
   
-  /* User Profile */
+
+
   
   .user-profile {
     border: 1px solid #ccc;
@@ -45,16 +46,14 @@ body {
   .title-head {
     font-weight: bold;
   }
-  
-  /* Analytics */
-  
+ 
   .analytics {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
   }
   
-  /* Shorten URL */
+  
   
   .shorten-url {
     margin-bottom: 20px;
@@ -68,8 +67,7 @@ body {
     border-radius: 4px;
     text-decoration: none;
   }
-  
-  /* URL List */
+ 
   
   .url-list {
     border: 1px solid #ccc;
@@ -105,15 +103,12 @@ body {
   li span {
     font-weight: bold;
   }
-  
-  /* QR Code */
+
   
   .qr-code {
     margin-top: 10px;
   }
-  
-  /* Responsive Styles */
-  
+
   @media (max-width: 600px) {
     .dashboard-container {
       padding: 10px;
