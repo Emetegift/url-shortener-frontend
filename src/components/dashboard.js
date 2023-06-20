@@ -73,6 +73,7 @@ function Dashboard() {
 
       <div className="user-profile">
         <h4>User Profile</h4>
+        
         <p className="title-head">
           Username: <span>{user.username}</span>
         </p>
@@ -92,10 +93,10 @@ function Dashboard() {
 
       <div className="analytics">
         <h4>Analytics</h4>
-        <p>Total Clicks: {user.analytics ? user.analytics.totalClicks : 0}</p>
+        <p>Total Clicks: {user.analytics ? user.analytics.totalClicks : +1}</p>
       </div>
 
-      <div className="shorten-url">
+      {/* <div className="shorten-url">
         <Link to="/UrlShortener" className="link-url">
           Shorten URL
         </Link>
@@ -137,7 +138,9 @@ function Dashboard() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
+      <br />
+      <Link to="/UrlShortener" className="btn btn-primary btn-lg">Go back</Link>
     </div>
   );
 }
