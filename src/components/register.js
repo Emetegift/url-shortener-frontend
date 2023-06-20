@@ -352,8 +352,8 @@ function SignUp() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group>
             <center>
-              <h1><b>Sign up and start shrinking!</b></h1>
-              <h5><Link to='/login'>Already have an account?</Link></h5>
+              <h2><b>Sign up and start shrinking!</b></h2>
+              <h6><Link to='/login'>Already have an account?</Link></h6>
             </center>
           </Form.Group>
           <br></br>

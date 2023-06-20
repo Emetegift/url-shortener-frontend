@@ -68,9 +68,9 @@ function Login() {
         <form onSubmit={handleSubmit}>
           <Form.Group>
             <center>
-              <h1>
+              <h2>
                 <b>Good to See you again</b>
-              </h1>
+              </h2>
             </center>
           </Form.Group>
           <Form.Group>
@@ -115,8 +115,6 @@ function Login() {
               </p>
             )}
           </Form.Group>
-
-          <br />
 
           <Form.Group>
             <center>

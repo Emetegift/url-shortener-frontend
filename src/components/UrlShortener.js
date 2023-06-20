@@ -306,6 +306,7 @@ import { Link } from "react-router-dom";
 import { BASE_URL } from "../utils/constant";
 import QRCode from "qrcode.react";
 import api from "./refresh_token";
+import image2 from '../images/image2.jpg';
 import '../css/shortener.css';
 
 export default function UrlShortener() {
@@ -358,10 +359,15 @@ export default function UrlShortener() {
 
   return (
     <div className="contain">
-      <h1>Trim your long URL</h1>
+      
       {message && <div className="messg">{message}</div>}
       {flashMessage && <div className="flash-message2">{flashMessage}</div>}
       <form onSubmit={handleSubmit}>
+        <Form.Group>
+          
+              <h2><b>Trim your long URL</b></h2>
+          
+        </Form.Group>
         <Form.Group>
           <Form.Label htmlFor="original url">Original URL:</Form.Label>
           <Form.Control
@@ -394,6 +400,7 @@ export default function UrlShortener() {
           </center>
         </Form.Group>
       </form>
+      <img src={image2} alt="Image" />
 
       {Object.keys(responseData).length > 0 && (
         <div className="details">
