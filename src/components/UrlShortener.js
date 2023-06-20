@@ -395,9 +395,11 @@ export default function UrlShortener() {
         </Form.Group>
       </form>
 
-      <br />
       {Object.keys(responseData).length > 0 && (
         <div className="details">
+          <div className="qrcode">
+              <QRCode value={responseData.shortened_url} />
+          </div>
           <Form.Group>
             <Form.Label htmlFor="short_url">Shortened URL:</Form.Label>
             <Form.Control
@@ -406,6 +408,7 @@ export default function UrlShortener() {
               readOnly
               value={responseData.shortened_url}
             />
+            
           </Form.Group>
           <br />
           <Form.Group>
@@ -419,18 +422,10 @@ export default function UrlShortener() {
           </Form.Group>
 
           <br />
-          <div className="qrcode">
-            <QRCode value={responseData.shortened_url} />
-          </div>
+          
         </div>
       )}
-
-      <br />
-      <div className="b2d-div">
-        <Link to="/dashboard" className="b2d">
-          Dashboard
-        </Link>
-      </div>
+      
     </div>
   );
 }

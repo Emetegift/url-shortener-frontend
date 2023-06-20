@@ -93,7 +93,7 @@ function Dashboard() {
 
       <div className="analytics">
         <h4>Analytics</h4>
-        <p>Total Clicks: {user.analytics ? user.analytics.totalClicks : +1}</p>
+        <p className="totalclicks">Total Clicks: {user.analytics ? user.analytics.totalClicks : +1}</p>
       </div>
 
       {/* <div className="shorten-url">

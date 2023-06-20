@@ -6,7 +6,7 @@ import '../css/about.css'; // Imports the 'about.css' file located in the '../cs
 
 const About = () => { // Defines a functional component named 'About'
   return ( // Returns JSX code representing the UI of the component
-    <div className="about container"> 
+    <div className="about"> 
         <h3 className='heading'> <i><b>QuickLink!</b></i></h3> 
       <h2><b>Make your experience count</b></h2> 
       <p className='content'>Simplify your URLs and make them more manageable with QuickLink, 

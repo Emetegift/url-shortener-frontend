@@ -1,3 +1,21 @@
+
+.dashboard{
+  display: flex;
+flex-direction: column;
+justify-content: left;
+align-items: left;
+padding: 50px;
+margin-top: 100px;
+margin-left: auto;
+margin-right: auto;
+background-color:  #3f2c2c;;
+max-width: 30%;
+padding-top: 50px;
+border-radius: 40px;  
+/* min-height: 100vh; */
+
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,7 +26,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin: 20px 0;
-    color: #ff7b00;
+    color: #e9eaec;
   }
   
   h2 {
@@ -19,6 +37,7 @@ body {
   
   p {
     margin: 5px 0;
+    color: #e9eaec;
   }
   
   a {
@@ -45,6 +64,7 @@ body {
   
   .title-head {
     font-weight: bold;
+    color: #e9eaec;
   }
  
   .analytics {
@@ -53,6 +73,9 @@ body {
     margin-bottom: 20px;
   }
   
+  .totalclicks{
+    color: #e9eaec;
+  }
   
   
   .shorten-url {
