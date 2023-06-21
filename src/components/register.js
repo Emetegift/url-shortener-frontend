@@ -316,7 +316,7 @@ function SignUp() {
   const onSubmit = async (data) => {
     if (data.password === data.confirm_password) {
       try {
-        const response = await axios.post("http://localhost:5000/register", data, {
+        const response = await axios.post("https://url-shortener-api-y3fb.onrender.com/register", data, {
           headers: {
             "Content-Type": "application/json"
           }
