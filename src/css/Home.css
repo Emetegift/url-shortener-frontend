@@ -1,25 +1,4 @@
-/* 
-  /* 
-  
-  .content {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .btn-primary {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    background-color: #008eff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  */
+
   .btn-primary:hover {
     background-color: #005eff;
     width: 80%;
@@ -48,57 +27,13 @@
     font-weight: bold;
   }
   
-  /* .form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  } */
-  
-  /* button[type="submit"] {
-    padding: 12px 24px;
-    font-size: 17px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    background-color: #008eff;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  } */
-  
-  /* button[type="submit"]:hover {
-    background-color: #005eff;
-  }
-  
-  p {
-    margin-bottom: 5px;
-  }
-  
-  .small {
-    font-size: 14px;
-    color: red;
-  } */
-   
-
-
-/* .home {
-  background-color:white;
-  padding: 20px;
-  min-height: 100vh;
-  display:content;
-  align-items: center;
-  justify-content: center;
-} */
-
 
 .container-home {
   text-align: center;
-  /* margin-top: 0px; */
+  
   background-color: #FFFFFF;
   justify-content: center;
-  /* display:flex; */
+  
   margin-bottom: 70%;
   max-width: 100%;
   border-radius: 0;
@@ -106,17 +41,15 @@
 }
 
 .head {
-  /* margin-top: auto;  */
+  
   width:100%;
-  /* max-width: 100;  */
+  
   font-size: 2.8rem;
-  /* margin-bottom: 20px; */
-  /* background-color: rgb(235, 29, 29); */
-   /* background-color:  #007bff; */
+
    background-color: #0056b3;
    color: #fff;
    text-align: center;
-   /* display:block; */
+
 }
 
 .link{
@@ -124,18 +57,12 @@
 }
 
 img {
-  margin-right: 10%; /* Add margin-right to create spacing between image and form */
-  /* display: flex; */
+  margin-right: 10%; 
+ 
   max-height: 37.4vh;
 }
 
-/* .content {
 
-  font-size: 70px;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #fff;
-} */
 
 .btn-primary {
   background-color: #007bff;
@@ -147,43 +74,14 @@ img {
   text-decoration: none;
   display: block;
   margin: 30px auto;
-  max-width: 500px; /* Adjust the width as per your preference */
+  max-width: 500px; 
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
-} */
+} 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-.head {
-  font-size: 24px;
-  text-align: center;
-  margin-top: 40px;
-  color: #333;  
-}
-*/
 .content {
   font-size: 16px;
   text-align: center;
@@ -198,9 +96,9 @@ img {
 }
 
 .images-container img {
-  width: 45%; /* Adjust the image width as needed */
+  width: 45%; 
   max-width: 100%;
-  border-radius: 8px; /* Apply border radius for a rounded look */
+  border-radius: 8px;
 }
 
 .btn-primary {
@@ -211,7 +109,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  /* Styles for smaller screens */
+ 
   .head {
     font-size: 20px;
     margin-top: 20px;
