@@ -13,7 +13,7 @@ function SignUp() {
   const onSubmit = async (data) => {
     if (data.password === data.confirm_password) {
       try {
-        const response = await axios.post("https://quicklink.onrender.com/", data, {
+        const response = await axios.post("https://quicklink.onrender.com/register", data, {
           headers: {
             "Content-Type": "application/json"
           }
