@@ -1,25 +1,8 @@
-/* .contain {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
- 
-  max-width: 100%;
-  padding-top: 50px;
-  border-radius: 0px; 
-  overflow-y: auto; 
-} */
-
-
-
+/* Common styles for all devices */
 .contain {
   display: flex;
-  justify-content: space-between; /* Add this property to distribute the content */
-  align-items: centr; 
+  justify-content: space-between;
+  align-items: center;
   padding: 50px;
   max-width: 100%;
   border-radius: 0px;
@@ -28,58 +11,31 @@
   min-height: 100vh;
 }
 
-form {
-  width: 70%; /* Adjust the width as per your preference */
-  /* max-width: 400px; */
-  color: white;
-  margin: 0px 0px 30px; /* Add margin-bottom to create space below the form */
+.formy {
+  width: 70%;
   background-color: hwb(207 35% 31% / 0.89);
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px; 
-  border-top-right-radius: 15px;
-  text-align: left;  
-  border: 20px;
-  margin-left: 10%;
+  margin: 0px 0px 100px;
+  border-radius: 15px;
+  text-align: left;
+  /* margin-left: 10%; */
   max-height: 15vh;
-
-}  
-
-img {
-  margin-right: 10%; /* Add margin-right to create spacing between image and form */
-  display: flex;
-  max-height: 37.4vh;
+  color: #FFFFFF;
 }
 
-h2{
-  text-align: center;
+img {
+  margin-right: 10%;
+  display: flex;
+  /* max-height: 37.4vh; */
 }
 
 .messg {
-  /* background-color: #cce5ff; */
   color: hwb(207 35% 31% / 0.89);
   padding: 10px;
-  /* margin-bottom: 20px; */
-  /* text-align: center; */
 }
 
 .flash-message2 {
-  /* background-color: #aaa3a3; */
   color: #f50f0f;
-  /* padding: 10px; */
-  /* margin-bottom: 20px; */
-  /* text-align: center; */
 }
-
-/* form {
-  width: 100%;
-  max-width: 400px;
-  color: #cce5ff;
-  margin: 0px;
-  background-color: #007bff;
-  border-bottom-right-radius:20px ;
-  border-bottom-left-radius: 20px;
-} */
 
 .details {
   width: 100%;
@@ -87,17 +43,12 @@ h2{
   color: white;
   margin-right: 10%;
   background-color: hwb(207 35% 31% / 0.89);
-  border-bottom-right-radius:15px ;
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   max-height: 30vh;
-
+  margin-bottom: 300px;
 }
 
-.form-group {
+.form-group1 {
   margin-bottom: 20px;
-  /* background-color: #007bff; */
 }
 
 label {
@@ -109,7 +60,6 @@ input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 8px;
-  border: 25px solid hwb(207 35% 31% / 0.89);
   border-radius: 4px;
 }
 
@@ -132,7 +82,7 @@ button[type="submit"] {
   width: 100%;
   display: flex;
   justify-content: center;
-  /* width:00px; */
+  /* max-height: 30vh; */
 }
 
 .b2d-div {
@@ -141,11 +91,43 @@ button[type="submit"] {
 }
 
 .b2d {
-  color:hwb(207 35% 31% / 0.89);
+  color: hwb(207 35% 31% / 0.89);
   text-decoration: none;
   font-weight: bold;
 }
 
-/* img{
-  align-items: end;
-} */
+/* Media Queries for Responsive Styles */
+
+/* Small devices (up to 767px) */
+@media (max-width: 767px) {
+  .contain {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .formy {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  img {
+    margin-right: 0;
+    max-height: 200px;
+  }
+}
+
+/* Medium devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .formy {
+    width: 60%;
+    margin-left: 20%;
+  }
+}
+
+/* Large devices (992px and above) */
+@media (min-width: 992px) {
+  .formy {
+    width: 50%;
+    margin-left: 25%;
+  }
+}

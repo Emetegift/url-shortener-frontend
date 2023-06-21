@@ -29,16 +29,16 @@ body {
     color: #e9eaec;
   }
   
-  h2 {
+  h12 {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0;
   } 
   
-  p {
+  /* p {
     margin: 5px 0;
     color: #e9eaec;
-  }
+  } */
   
   a {
     color: #007bff;

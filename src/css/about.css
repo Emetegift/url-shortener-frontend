@@ -52,7 +52,7 @@
    */
 
 
-/* 
+
    .about {
     max-width: 800px;
     margin: 0 auto;
@@ -102,71 +102,6 @@
   
     .cta-button {
       font-size: 16px;
-    }
-  }
-   */
-
-   /* body {
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  } */
-
-   .about {
-    max-width: 100%;
-    margin: 0 ;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    text-align: left;
-    box-sizing: border-box;
-    background-color: #f0f0f0;
-  }
-  
-  .heading,
-  h4 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #ff7b00;
-    text-align: right;
-  }
-  
-  .content {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #008eff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background-color: #005eff;
-  }
-  
-  @media screen and (min-width: 300px) {
-    .about {
-      max-width: 1200px;
-    }
-  
-    .heading,
-    h4 {
-      font-size: 36px;
-    }
-  
-    .content {
-      font-size: 18px;
-    }
-  
-    .cta-button {
-      font-size: 18px;
     }
   }
   

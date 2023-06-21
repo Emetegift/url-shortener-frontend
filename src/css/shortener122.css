@@ -1,0 +1,123 @@
+.contain {
+    display: flex;
+    flex-direction: space-between;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: #2196F3;
+    min-height: 100vh;
+  }
+  
+  .formy {
+    width: 100%;
+    max-width: 600px;
+    /* background-color: #2196F3; */
+    background-color: #FFFFFF;
+    margin: 0 auto 30px;
+    border-radius: 15px;
+    text-align: left;
+    padding: 20px;
+    /* max-width: 100%;
+    overflow-y: auto;
+    display: flex; */
+    /* border-radius: 0; */
+  }
+  
+  img {
+    margin: 0 auto 10px;
+    display: block;
+    max-width: 100%;
+  }
+  
+  .messg {
+    color: hwb(207 35% 31% / 0.89);
+    padding: 10px;
+  }
+  
+  .flash-message2 {
+    color: #f50f0f;
+  }
+  
+  .details {
+    width: 100%;
+    max-width: 400px;
+    color: white;
+    margin: 0 auto 10px;
+    background-color: #2196F3;
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .form-group1 {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid hwb(207 35% 31% / 0.89);
+    border-radius: 4px;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .qrcode {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .b2d-div {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .b2d {
+    color: hwb(207 35% 31% / 0.89);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    /* Styles for smaller screens */
+    .contain {
+      padding: 20px;
+    }
+  
+    .formy {
+      margin: 0 auto 20px;
+    }
+  
+    img {
+      margin-right: 0;
+      max-height: 200px;
+    }
+  
+    .details {
+      margin-right: 0;
+    }
+  }
+  

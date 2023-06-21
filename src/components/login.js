@@ -66,7 +66,7 @@ function Login() {
         {message && <div className="messg">{message}</div>}
         {flashMessage && <div className="flash-message2">{flashMessage}</div>}
         <form onSubmit={handleSubmit}>
-          <Form.Group>
+          <Form.Group className="signup">
             <center>
               <h2>
                 <b>Good to See you again</b>

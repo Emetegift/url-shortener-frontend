@@ -1,0 +1,77 @@
+/* register.css */
+.container {
+  /* display: contents; */
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  /* min-height: 100vh; */
+  margin-bottom:100px;
+  /* margin-top:50; */
+  background-color: #2196F3;
+  width: 100%;
+}
+
+.form {
+  display:flex;
+  width: 600px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  margin-top:30px;
+}
+
+.flash-message2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff0000;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h6 {
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-success {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #2196F3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  /* Styles for smaller screens */
+  .form {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

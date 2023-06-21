@@ -66,19 +66,23 @@ export default function Home() {
   // Check if the user is logged in
   
   return (
-    <div className="home">
+    <div className="container-home">
       <h2 className='head'>Welcome to <i><b>QuickLink!</b></i></h2>
       <p className='content'>Simplify your URLs and make them more manageable with QuickLink,
         <br /> the ultimate URL shortening service.
         <br /> Whether you're sharing links on social media,
         <br /> sending emails, or simply want to keep your URLs concise,
         <br /> QuickLink has got you covered.</p>
-      <div className="img1">
+      
+        {/* <img src={image1} alt="Image" />
+   
+        <img src={image4} alt="Image" /> */}
+
+      <div className="images-container">
         <img src={image1} alt="Image" />
-      </div>
-      <div className="img2">
         <img src={image4} alt="Image" />
       </div>
+   
     
       <Link to="/register" className="btn btn-primary btn-lg">Get Started for Free</Link>
 

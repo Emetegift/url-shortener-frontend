@@ -67,6 +67,7 @@
 
    .navbar {
     background-color: #f1f3f7;
+    justify-content: space-between;
   }
   
   .navbar-brand {

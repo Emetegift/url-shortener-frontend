@@ -1,163 +1,96 @@
-.container {
-    /* display:block; */
-    /* flex-direction: column; */
-    justify-content: center;
-    /* align-items: center; */
-    /* padding: 50px; */
-    margin-left: auto;
-    margin-right: auto;
-    /* background-color: #3f2c2c; */
-    max-width: 100%;
-    /* border-radius: 40px; */
-    overflow-y: auto; 
-    /* background-color: hwb(207 35% 31% / 0.89); */
-    min-height: 100vh;
-    background-color: #87CEEB
+/* register.css */
+body {
+    margin: 0;
+    padding: 0;
   }
   
-
-  .form {
-    width: 50%;
-    max-width: 600px;
-    /* padding: 20px; */
-    border: 1px solid #ccc;
-    /* border-radius: 4px; */
-    border-radius: 20px;
-    margin: 50px auto ;
-    /* background-color: #    */
-    /* background-color: hwb(207 35% 31% / 0.89); */
-    /* max-height: 30px; */
-    justify-content: center;
-    /* text-align: justify; */
+  .container {
     display: flex;
-    padding: 20px;
-  }
-  
-  .form h1 {
-    margin-top: 0;
-  }
-  
-  .form small {
-    font-size: 12px;
-  }
-  
-  .form label {
-    font-weight: bold;
-  }
-  
-  .form input[type="text"],
-  .form input[type="email"],
-  .form input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    /* box-sizing: border-box; */
-  }
-  
-  .form p {
-    margin: 5px 0;
-  }
-  
-  .form button[type="submit"] {
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .form button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  .form a {
-    /* color: #007bff; */
-    text-decoration: none;
-  }
-  
-  .form a:hover {
-    text-decoration: underline;
-  }
-  
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2196F3;
+    margin-bottom: 200px;
 
-  @media screen and (max-width: 768px) {
-    .heading {
-      font-size: 30px;
-    }
+    max-width: 100%;
+    border-radius: 0;
+    overflow-y: auto;
+    /* background-color: #2196F3; */
+    min-height: 100vh;
+
   }
   
-
-   
-  /* 
   .form {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 400px; 
+    max-width: 600px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin-top: 30px;
+    margin-bottom: 100px;
   }
   
- 
-  
-  
-  
-  .form h1 {
-    margin-top: 0;
+  .flash-message2 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #ff0000;
   }
   
-  .form small {
-    font-size: 12px;
+  .signup {
+    /* font-size: 40px; */
+    /* margin-bottom: 10px; */
+    text-align: center;
+    color: #2196F3;
   }
   
-  .form label {
+  h4 {
+    font-size: 14px;
+    text-align: center;
+    /* padding-left: 10px; */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
     font-weight: bold;
   }
   
-  .form input[type="text"],
-  .form input[type="email"],
-  .form input[type="password"] {
+  .form-control {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
   }
   
-  .form p {
-    margin: 5px 0;
-  }
-  
-  .form button[type="submit"] {
+  .btn-success {
+    display: block;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
+    background-color: #2196F3;
+    color: #fff;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
+    font-size: 16px;
+    text-align: center;
     cursor: pointer;
   }
   
-  .form button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  .form a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .form a:hover {
-    text-decoration: underline;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .form h1 {
-      font-size: 30px;
+  @media (max-width: 768px) {
+    /* Styles for smaller screens */
+    .form {
+      padding: 10px;
     }
+  
+    h2 {
+      font-size: 20px;
+    }
+
+    h4 {
+        font-size: 0px;
+      }
   }
-   */
+  
