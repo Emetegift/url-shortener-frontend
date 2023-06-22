@@ -25,12 +25,15 @@ body {
     flex-direction: column;
     width: 100%;
     max-width: 600px;
-    padding: 20px;
+    padding: 50px;
     background-color: #FFFFFF;
     border-radius: 8px;
     margin-top: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 400px;
+    min-height: 100vh;
   }
+
+
   
   .flash-message2 {
     margin-bottom: 10px;
@@ -44,11 +47,12 @@ body {
     text-align: center;
     color: #2196F3;
   }
-  
+
   h4 {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
-    /* padding-left: 10px; */
+    padding-left: 10px;
+    /* background-color: black; */
   }
   
   .form-group {
@@ -90,7 +94,7 @@ body {
     }
 
     h4 {
-        font-size: 0px;
+        font-size: 10px;
       }
   }
   

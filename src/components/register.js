@@ -61,6 +61,7 @@ function SignUp() {
           <div className="container-reg">
             <Form.Group className="signup">
                 <h2><b>Sign up and start shrinking!</b></h2>
+                <h4><Link to='/login'>Already have an account?</Link></h4>
             </Form.Group>
             <br></br>
             <Form.Group>
@@ -130,13 +131,12 @@ function SignUp() {
             </Form.Group>
             <br></br>
           
-              <Button type="submit" className="btn btn-success" variant="dark">Sign Up</Button>
-            
-            <br />
+            <Button type="submit" className="btn btn-success" variant="dark">Sign Up</Button>
+           <br />
             <Form.Group>
-              <h4><Link to='/login'>Already have an account?</Link></h4>
+              {/* <h4><Link to='/login'>Already have an account?</Link></h4> */}
            
-          </Form.Group>
+            </Form.Group>
 
           </div>
         </form>
