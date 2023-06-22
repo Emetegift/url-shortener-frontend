@@ -69,10 +69,10 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
+      <h1 className="dash">Dashboard</h1>
 
       <div className="user-profile">
-        <h4>User Profile</h4>
+        <h4 className="title">User Profile</h4>
         
         <p className="title-head">
           Username: <span>{user.username}</span>
@@ -92,7 +92,7 @@ function Dashboard() {
       </div>
 
       <div className="analytics">
-        <h4>Analytics</h4>
+        <h4 className="title">Analytics</h4>
         <p className="totalclicks">Total Clicks: {user.analytics ? user.analytics.totalClicks : +1}</p>
       </div>
 
